@@ -1,0 +1,9 @@
+language: go
+go:
+  - 1.7.x
+  - 1.8.x
+before_install:
+  - go get github.com/mattn/goveralls
+script:
+  - go test -v -covermode=count -coverprofile=coverage.out -coverpkg=./...
+  - goveralls -coverprofile=coverage.out -service travis-ci -repotoken $COVERALLS_TOKEN

@@ -27,11 +27,11 @@ func (dc dummyClient) Write(bp client.BatchPoints) error {
 func (dc dummyClient) Query(q client.Query) (*client.Response, error) {
 	return &client.Response{
 		Results: []client.Result{
-			client.Result{
+			{
 				Series: []models.Row{
-					models.Row{
+					{
 						Name:   "databases",
-						Values: [][]interface{}{[]interface{}{"db1", "db2"}},
+						Values: [][]interface{}{{"db1", "db2"}},
 					},
 				},
 			},
